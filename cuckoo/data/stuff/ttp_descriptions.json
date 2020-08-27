@@ -392,7 +392,7 @@
         "short": "On-the-Fly APIs"
     },
     "B0006.008": {
-        "long": "API behavior can be altered to prevent memory dumps. For example, inaccurate data can be reported when the contents of the physical memory of the system on which the malware instance is executing is retrieved. See [Hooking](https://github.com/MBCProject/mbc-markdown/blob/master/credential-access/hooking.md).",
+        "long": "API behavior can be altered to prevent memory dumps. For example, inaccurate data can be reported when the contents of the physical memory of the system on which the malware instance is executing is retrieved. See [Hooking](https://github.com/MBCProject/mbc-markdown/blob/v2.0/credential-access/hooking.md).",
         "short": "Feed Misinformation"
     },
     "B0006.009": {
@@ -616,7 +616,7 @@
         "short": "Invoke NTDLL System Calls via Encoded Table"
     },
     "B0011": {
-        "long": "Malware may provide an attacker with explicit commands. This behavior differs from the [Remote Access](https://github.com/MBCProject/mbc-markdown/blob/master/impact/remote-access.md) behavior under the [Impact](https://github.com/MBCProject/mbc-markdown/tree/master/impact) objective in that *Impact: Remote Access* is potentially much broader and may include full remote access.",
+        "long": "Malware may provide an attacker with explicit commands. This behavior differs from the [Remote Access](https://github.com/MBCProject/mbc-markdown/blob/v2.0/impact/remote-access.md) behavior under the [Impact](https://github.com/MBCProject/mbc-markdown/tree/v2.0/impact) objective in that *Impact: Remote Access* is potentially much broader and may include full remote access.",
         "short": "Remote Commands"
     },
     "B0011.001": {
@@ -820,7 +820,7 @@
         "short": "Code Reordering"
     },
     "B0030": {
-        "long": "All command and control malware use client/server communication. The methods listed below can be used to capture explicit communication details. Remote file copy behavior is captured separately, as is done in ATT&CK - see [Remote File Copy](https://github.com/MBCProject/mbc-markdown/blob/master/command-and-control/remote-file-copy.md).",
+        "long": "All command and control malware use client/server communication. The methods listed below can be used to capture explicit communication details. Remote file copy behavior is captured separately, as is done in ATT&CK - see [Remote File Copy](https://github.com/MBCProject/mbc-markdown/blob/v2.0/command-and-control/remote-file-copy.md).",
         "short": "C2 Communication"
     },
     "B0030.001": {
@@ -1044,12 +1044,12 @@
         "short": "HTTP Communication"
     },
     "C0002.001": {
-        "long": "The stack is made executable.",
-        "short": "Executable Stack::Change Memory Protection"
+        "long": "General HTTP server behavior.",
+        "short": "Server::HTTP Communication"
     },
     "C0002.002": {
-        "long": "The heap is made executable.",
-        "short": "Executable Heap::Change Memory Protection"
+        "long": "General HTTP client behavior.",
+        "short": "Client::HTTP Communication"
     },
     "C0002.003": {
         "long": "Non-specific HTTP request.",
@@ -1068,12 +1068,28 @@
         "short": "PUT Request::HTTP Communication"
     },
     "C0002.007": {
-        "long": "A HTTP request is made via the Windows Internet (WinINet) application programming interface (API). A specific function can be specified as a method on the [WinInet](https://github.com/MBCProject/mbc-markdown/blob/master/micro-behaviors/communication/wininet.md) microbehavior.",
+        "long": "A HTTP request is made via the Windows Internet (WinINet) application programming interface (API). A specific function can be specified as a method on the [WinInet](https://github.com/MBCProject/mbc-markdown/blob/v2.0/micro-behaviors/communication/wininet.md) microbehavior.",
         "short": "WinINet API::HTTP Communication"
     },
     "C0002.008": {
+        "long": "An HTTP request is made via the Windows HTTP Services (WinHTTP) application programming interface (API).",
+        "short": "WinHTTP API::HTTP Communication"
+    },
+    "C0002.009": {
+        "long": "A HTTP request is made via a URLMON function. Specific functions can be captured: e.g., COMMUNICATION::HTTP Communication::URLMON Function.URLDownloadToFileW.",
+        "short": "URLMON Function::HTTP Communication"
+    },
+    "C0002.010": {
         "long": "The IWebBrowser interface exposes methods and properties implemented by the WebBrowser control or implemented by an instance of the InternetExplorer application. Specific methods and properties can be captured: e.g., COMMUNICATION::HTTP Communication::IWebBrowser.get_Document.",
         "short": "IWebBrowser::HTTP Communication"
+    },
+    "C0002.011": {
+        "long": "Specific methods and properties can be captured: e.g., COMMUNICATION::HTTP Communication::IHTMLDocument Interface.get_body.",
+        "short": "IHTMLDocument::HTTP Communication"
+    },
+    "C0002.012": {
+        "long": "Specific methods and properties can be captured: e.g., COMMUNICATION::HTTP Communication::IHTMLElement Interface.get_innerText.",
+        "short": "IHTMLElement::HTTP Communication"
     },
     "C0003": {
         "long": "The Interprocess Communication micro-behavior focuses on interprocess communication.",
@@ -1143,8 +1159,16 @@
         "long": "Malware may change memory protection. For example, read-write memory may be changed to read-execute. Changing memory protection may exploits (e.g., bypass Data Execution Prevention).",
         "short": "Change Memory Protection"
     },
+    "C0008.001": {
+        "long": "The stack is made executable.",
+        "short": "Executable Stack::Change Memory Protection"
+    },
+    "C0008.002": {
+        "long": "The heap is made executable.",
+        "short": "Executable Heap::Change Memory Protection"
+    },
     "C0009": {
-        "long": "Stack pivoting involves pointing the stack pointer to an attacker-owned buffer, such as the heap, and facilitates exploits such as ROP-based exploits (see [Bypass DEP](https://github.com/MBCProject/mbc-markdown/blob/master/defense-evasion/bypass-dep.md) behavior).",
+        "long": "Stack pivoting involves pointing the stack pointer to an attacker-owned buffer, such as the heap, and facilitates exploits such as ROP-based exploits (see [Bypass DEP](https://github.com/MBCProject/mbc-markdown/blob/v2.0/defense-evasion/bypass-dep.md) behavior).",
         "short": "Stack Pivot"
     },
     "C0010": {
@@ -1492,7 +1516,7 @@
         "short": "Install Insecure or Malicious Configuration"
     },
     "E1480": {
-        "long": "Malware may use execution guardrails (environmental conditions) to constrain execution. This behavior is related to the [Evade Dynamic Analysis](https://github.com/MBCProject/mbc-markdown/tree/master/anti-behavioral-analysis/evade-dynamic-analysis.md) behavior that obstructs dynamic analysis in a sandbox, emulator, or virtual machine.",
+        "long": "Malware may use execution guardrails (environmental conditions) to constrain execution. This behavior is related to the [Evade Dynamic Analysis](https://github.com/MBCProject/mbc-markdown/tree/v2.0/anti-behavioral-analysis/evade-dynamic-analysis.md) behavior that obstructs dynamic analysis in a sandbox, emulator, or virtual machine.",
         "short": "Execution Guardrails"
     },
     "E1480.m01": {
@@ -1632,7 +1656,7 @@
         "short": "Polling"
     },
     "F0003": {
-        "long": "Malware alters API behavior or redirects execution to a malicious API version for a variety of purposes. Malware may use hooking to load and execute code within the context of another process, hiding execution and gaining elevated privileges and access to the process's memory. Methods related to anti-behavioral analysis are below. For example, hooking can be used to prevent memory dumps - see also [Memory Dump Evasion](https://github.com/MBCProject/mbc-markdown/blob/master/anti-behavioral-analysis/evade-memory-dump.md).",
+        "long": "Malware alters API behavior or redirects execution to a malicious API version for a variety of purposes. Malware may use hooking to load and execute code within the context of another process, hiding execution and gaining elevated privileges and access to the process's memory. Methods related to anti-behavioral analysis are below. For example, hooking can be used to prevent memory dumps - see also [Memory Dump Evasion](https://github.com/MBCProject/mbc-markdown/blob/v2.0/anti-behavioral-analysis/evade-memory-dump.md).",
         "short": "Hooking"
     },
     "F0003.001": {
